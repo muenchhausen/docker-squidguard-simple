@@ -1,9 +1,9 @@
 # Introduction
 
-this Dockerfile is an [squidGuard](http://www.squidguard.org/) addition to [sameersbn/docker-squid](https://github.com/sameersbn/docker-squid). 
+this image is an [squidGuard](http://www.squidguard.org/) addition to [sameersbn/docker-squid](https://github.com/sameersbn/docker-squid). 
 I find squidGuard very useful to limit access to certain internet pages and to reduce the risk for downloading dangerous software. A central filtering solution is preferred especially if you have a family with children and different devices.
 
-Important: This Docker image allows just local configuration within squidGuard.conf. If you want to use whitelists and blacklists from external sources, please use my other docker image [muenchhausen/docker-squidguard](https://hub.docker.com/r/muenchhausen/docker-squidguard/) and [source](https://github.com/muenchhausen/docker-squidguard) instead.
+**Important: This Docker image allows just local configuration within squidGuard.conf. If you want to use whitelists and blacklists from external sources, please use my other docker image [muenchhausen/docker-squidguard](https://hub.docker.com/r/muenchhausen/docker-squidguard/) and [source](https://github.com/muenchhausen/docker-squidguard) instead.**
 
 This image includes also automatic proxy discovery based on WPAT and DHCP. Here a Webserver is required that serves wpat.dat.
 
@@ -11,13 +11,13 @@ This image includes also automatic proxy discovery based on WPAT and DHCP. Here 
 
 Pull the image from the docker registry e.g.
 
-```docker pull muenchhausen/docker-squidguard```
+```docker pull muenchhausen/docker-squidguard-simple```
 
 or build it
 
-```git clone https://github.com/muenchhausen/docker-squidguard.git```
+```git clone https://github.com/muenchhausen/docker-squidguard-simple.git```
 
-```cd docker-squidguard```
+```cd docker-squidguard-simple```
 
 ```docker build --tag="$USER/squidguard-simple" .```
 
