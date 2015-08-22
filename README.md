@@ -3,7 +3,7 @@
 this Dockerfile is an [squidGuard](http://www.squidguard.org/) addition to [sameersbn/docker-squid](https://github.com/sameersbn/docker-squid). 
 I find squidGuard very useful to limit access to certain internet pages and to reduce the risk for downloading dangerous software. A central filtering solution is preferred especially if you have a family with children and different devices.
 
-Important: This Docker image allows just local configuration within squidGuard.conf. If you want to use whitelists and blacklists from external source, please use my other docker image [muenchhausen/docker-squidguard](https://hub.docker.com/r/muenchhausen/docker-squidguard/) instead.
+Important: This Docker image allows just local configuration within squidGuard.conf. If you want to use whitelists and blacklists from external sources, please use my other docker image [muenchhausen/docker-squidguard](https://hub.docker.com/r/muenchhausen/docker-squidguard/) and [source](https://github.com/muenchhausen/docker-squidguard) instead.
 
 This image includes also automatic proxy discovery based on WPAT and DHCP. Here a Webserver is required that serves wpat.dat.
 
@@ -43,12 +43,13 @@ or run it including WPAT proxy autoconfig so your Operating system will find the
 To use WPAT, add a cusom-proxy-server option 252 to your DHCP server. Use "http://${WPAT_IP}/wpat.dat" e.g. "http://192.168.59.103/wpat.dat" as your option value. See [squidGuard Wiki](http://wiki.squid-cache.org/SquidFaq/ConfiguringBrowsers#Automatic_WPAD_with_DHCP) for further details.
 
 # Test it 
+In this config, we just allow Wikipedia and some other Domains.
 
 here curl should return the page:
 ```curl --proxy 192.168.59.103:3128 https://en.wikipedia.org/wiki/Main_Page```
 
-here an example of an advertising domain from the adv blacklist - curl gets blocked:
-```curl --proxy 192.168.59.103:3128 http://www.linkadd.de```
+here curl gets blocked:
+```curl --proxy 192.168.59.103:3128 http://www.heise.de```
 
 Finally configure docker host IP and port 3128 in your browser proxy settings or operating system proxy configuration.
 
