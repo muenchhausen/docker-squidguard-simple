@@ -20,8 +20,6 @@ ADD squidGuard.conf /etc/squidguard/squidGuard.conf
 ADD startSquidGuard /startSquidGuard
 RUN sudo chmod a+x /startSquidGuard
 
-RUN sudo -u proxy squidGuard -C all > /tmp/sq
-
 EXPOSE 3128 80
 VOLUME ["/var/spool/squid3"]
 

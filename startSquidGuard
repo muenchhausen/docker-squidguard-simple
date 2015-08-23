@@ -12,5 +12,8 @@ fi
 # start apache to serve wpat.dat file and or block.html
 sudo /etc/init.d/apache2 restart
 
+# create squirdguard DB
+sudo -u proxy squidGuard -C all > /tmp/sq
+
 # run original squid start script
 exec /sbin/entrypoint.sh
